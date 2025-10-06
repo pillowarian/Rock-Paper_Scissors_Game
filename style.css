@@ -1,7 +1,13 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   text-align: center;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f7f9fc;
 }
 
 h1 {
@@ -9,67 +15,117 @@ h1 {
   color: #fff;
   height: 5rem;
   line-height: 5rem;
+  font-size: 2rem;
+}
+
+/* Choices Container */
+.choices {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  margin-top: 4rem;
+  flex-wrap: wrap; /* allows wrapping on small screens */
 }
 
 .choice {
-  height: 165px;
-  width: 165px;
+  width: 25vmin;
+  height: 25vmin;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: transform 0.2s ease;
 }
 
 .choice:hover {
   cursor: pointer;
   background-color: #081b31;
+  transform: scale(1.05);
 }
 
-img {
-  height: 150px;
-  width: 150px;
+.choice img {
+  width: 90%;
+  height: 90%;
   object-fit: cover;
   border-radius: 50%;
 }
 
-.choices {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 3rem;
-  margin-top: 5rem;
-}
-
+/* Scoreboard */
 .score-board {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2rem;
+  font-size: 1.8rem;
   margin-top: 3rem;
   gap: 5rem;
+  flex-wrap: wrap;
 }
 
 #user-score,
 #comp-score {
-  font-size: 4rem;
+  font-size: 3rem;
 }
 
 .msg-container {
-  margin-top: 5rem;
+  margin-top: 3rem;
 }
 
 #msg {
   background-color: #081b31;
   color: #fff;
-  font-size: 2rem;
-  display: inline;
-  padding: 1rem;
+  font-size: 1.5rem;
+  display: inline-block;
+  padding: 1rem 2rem;
   border-radius: 1rem;
 }
-/* h1{
-    background-color: #4F359B;
-    color: #fff;
-    height: 5rem;
-    text-align: center;
-    line-height: 5rem;
-} */
+
+/* 📱 Responsive Design */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.6rem;
+    height: 4rem;
+    line-height: 4rem;
+  }
+
+  .choices {
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .choice {
+    width: 28vmin;
+    height: 28vmin;
+  }
+
+  #msg {
+    font-size: 1.2rem;
+    padding: 0.8rem 1.5rem;
+  }
+
+  .score-board {
+    font-size: 1.3rem;
+    gap: 2.5rem;
+  }
+
+  #user-score,
+  #comp-score {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .choices {
+    flex-direction: column;
+    margin-top: 2rem;
+  }
+
+  .choice {
+    width: 40vmin;
+    height: 40vmin;
+  }
+
+  #msg {
+    font-size: 1rem;
+  }
+}
